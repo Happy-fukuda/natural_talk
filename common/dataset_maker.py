@@ -28,10 +28,10 @@ class DatasetMaker():
     def delethead(self,str_line):
         input_str=""
         output_str=""
-        if "input:" in str_line:
-            input_str=str_line.replace("input:","")
-        elif "output:" in str_line:
-            output_str=str_line.replace("output:","")
+        if "input" in str_line:
+            input_str=str_line.replace("input","")
+        elif "output" in str_line:
+            output_str=str_line.replace("output","")
 
         return (input_str,output_str)
 
@@ -46,6 +46,8 @@ class DatasetMaker():
                     input_txt.write(wakati.parse(input_str))
                 else:
                     output_txt.write(wakati.parse(output_str))
+        input_txt.close()
+        output_txt.close()
 
 
     def changer(self,file_name,write_name):
@@ -69,9 +71,14 @@ class DatasetMaker():
                     w.write(' '.join(map(str,id_str))+"\n")
                     id_str.clear()
 
-        def changeid(self):
-            self.changer(self.input_out,self.input_id)
-            self.changer(self.output_out,self.output_id)
-            with open("../data/dict_word.pkl","wb") as p:
-                pk.dump(self.dict_word,p)
-                pk.dump(self.dict_num,p)
+    def changeid(self):
+        self.changer(self.input_out,self.input_id)
+        self.changer(self.output_out,self.output_id)
+        with open("../data/dict_word.pkl","wb") as p:
+            pk.dump(self.dict_word,p)
+            pk.dump(self.dict_num,p)
+
+    def all_run(self):
+        self.normalization()
+        self.segmentationwrite()
+        self.changeid()

@@ -37,3 +37,6 @@ class DataOperation():
 
     def word_dict(self):
         return self.dict_word,self.dict_num
+
+    def get_size(self):
+        return len(self.dict_word)
