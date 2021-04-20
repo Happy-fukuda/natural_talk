@@ -45,7 +45,7 @@ class DatasetMaker():
                 if input_str:
                     input_txt.write(wakati.parse(input_str))
                 else:
-                    output_txt.write(wakati.parse(output_str))
+                    output_txt.write("<start> "+wakati.parse(output_str))
         input_txt.close()
         output_txt.close()
 
@@ -53,9 +53,11 @@ class DatasetMaker():
     def changer(self,file_name,write_name):
         self.dict_word={}
         self.dict_num={}
-        word_number=0
+        word_number=1
         self.dict_num[0]="<PAD>"
         self.dict_word["<PAD>"]=0
+        self.dict_word["<start>"]=1
+        self.dict_num[1]="<start>"
         with open(file_name,"r") as f:
             with open(write_name,"w") as w:
                 for str_line in f:
