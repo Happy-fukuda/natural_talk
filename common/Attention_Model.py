@@ -23,7 +23,7 @@ class Encoder(tf.keras.Model):
         return output, state
 
     def initialize_hidden_state(self):
-        return tf.zeros((self.batch_sz, self.enc_units))
+        return tf.zeros((self.batch_sz, self.enc_units)) #batch*enc_unitsのゼロの行列
 
 
 class BahdanauAttention(tf.keras.layers.Layer):

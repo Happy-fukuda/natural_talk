@@ -7,22 +7,27 @@ import sys
 import time
 
 sys.path.append('..')
-from common import data_operation , Attention_Model
-
+from common import data_operation
+from common.Attention_Model import *
+#datasetのロード
 data_class=data_operation.DataOperation()
 (input_train,input_test) , (output_train , output_test) = data_class.data_load()
-targ_lang=data_class.get_size()
+targ_lang,targ_num=data_class.word_dict()
 
 BUFFER_SIZE = len(input_train)
 BATCH_SIZE = 64
 steps_per_epoch = len(input_train)//BATCH_SIZE
 embedding_dim = 256
 units = 1024
+
+#datasetをバッチに分解
+dataset = tf.data.Dataset.from_tensor_slices((input_train, output_train)).shuffle(BUFFER_SIZE)
+dataset = dataset.batch(BATCH_SIZE, drop_remainder=True)
 #このデータを何回学習させるか
 EPOCHS = 10
 #encoderとdecorderを定義
-encoder = Attention_Model.Encoder(vocab_inp_size, embedding_dim, units, BATCH_SIZE)
-decoder = Attention_Model.Decoder(vocab_tar_size, embedding_dim, units, BATCH_SIZE)
+encoder = Encoder(vocab_inp_size, embedding_dim, units, BATCH_SIZE)
+decoder = Decoder(vocab_tar_size, embedding_dim, units, BATCH_SIZE)
 #使う最適化アルゴリズムと損失関数を定義
 optimizer = tf.keras.optimizers.Adam()
 loss_object = tf.keras.losses.SparseCategoricalCrossentropy(
@@ -46,10 +51,10 @@ def loss_function(real, pred):
 
     return tf.reduce_mean(loss_)
 
-
+#inp:batch input targ: batch output
 def train_step(inp, targ, enc_hidden):
     loss = 0
-
+    #自動微分できるようにする
     with tf.GradientTape() as tape:
         enc_output, enc_hidden = encoder(inp, enc_hidden)
 
@@ -82,9 +87,9 @@ if __name__=="__main__":
     for epoch in range(EPOCHS):
         start = time.time()
 
-        enc_hidden = encoder.initialize_hidden_state()
+        enc_hidden = encoder.initialize_hidden_state() #zeroの行列
         total_loss = 0
-
+        # inp:input data targ: output data (バッチ単位)
         for (batch, (inp, targ)) in enumerate(dataset.take(steps_per_epoch)):
             batch_loss = train_step(inp, targ, enc_hidden)
             total_loss += batch_loss

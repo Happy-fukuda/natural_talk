@@ -45,7 +45,7 @@ class DatasetMaker():
                 if input_str:
                     input_txt.write(wakati.parse(input_str))
                 else:
-                    output_txt.write("<start> "+wakati.parse(output_str))
+                    output_txt.write(wakati.parse(output_str))
         input_txt.close()
         output_txt.close()
 
