@@ -21,8 +21,8 @@ units = 1024
 #このデータを何回学習させるか
 EPOCHS = 10
 #encoderとdecorderを定義
-encoder = Encoder(vocab_inp_size, embedding_dim, units, BATCH_SIZE)
-decoder = Decoder(vocab_tar_size, embedding_dim, units, BATCH_SIZE)
+encoder = Attention_Model.Encoder(vocab_inp_size, embedding_dim, units, BATCH_SIZE)
+decoder = Attention_Model.Decoder(vocab_tar_size, embedding_dim, units, BATCH_SIZE)
 #使う最適化アルゴリズムと損失関数を定義
 optimizer = tf.keras.optimizers.Adam()
 loss_object = tf.keras.losses.SparseCategoricalCrossentropy(
