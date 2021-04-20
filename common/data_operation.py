@@ -12,8 +12,8 @@ class DataOperation():
         with open("../data/dict_word.pkl","rb") as f:
             self.dict_word = pk.load(f)
             self.dict_num = pk.load(f)
-        int_input=[map(int,str_num.split()) for str_num in open(input_id,"r")]
-        int_output=[map(int,str_num.split()) for str_num in open(output_id,"r")]
+        int_input=[list(map(int,str_num.split())) for str_num in open(input_id,"r")]
+        int_output=[list(map(int,str_num.split())) for str_num in open(output_id,"r")]
         input_max=0
         output_max=0
         for i in int_input:
