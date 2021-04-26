@@ -10,7 +10,7 @@ class Encoder(tf.keras.Model):
         super(Encoder, self).__init__() #オーバーライドするため
         self.batch_sz = batch_sz
         self.enc_units = enc_units
-        self.input_length=input_length
+
         self.embedding = tf.keras.layers.Embedding(vocab_size, embedding_dim)
         self.gru = tf.keras.layers.GRU(self.enc_units,
                                        return_sequences=True,
