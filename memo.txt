@@ -1,0 +1,5 @@
+精度が悪かった場合、encorderとdecoderの入力最大数（単語IDの最大値）をそれぞれのものに変更
+////Encorder
+Embedding_output_shape:()
+GRU_output_shape:(64,154,1024):(バッチサイズ、ベクトルの次元数、設定出力次元（uints）)
+1
