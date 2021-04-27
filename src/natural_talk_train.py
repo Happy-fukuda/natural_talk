@@ -69,7 +69,7 @@ def train_step(inp, targ, enc_hidden):
         # Teacher Forcing - 正解値を次の入力として供給
         for t in range(1, targ.shape[1]):
             # passing enc_output to the decoder    (start, encorderの最後の出力, encorderの内部情報)2,3引数はattentionにも使う
-            predictions, dec_hidden, _ = decoder(dec_input, dec_hidden, enc_output)＜＜＜＜＜
+            predictions, dec_hidden, _ = decoder(dec_input, dec_hidden, enc_output)
 
             loss += loss_function(targ[:, t], predictions)
 
