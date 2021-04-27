@@ -40,4 +40,4 @@ class DataOperation():
         return self.dict_word,self.dict_num
 
     def get_size(self):
-        return len(self.dict_word)-1
+        return len(self.dict_word)+1
