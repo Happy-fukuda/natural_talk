@@ -28,7 +28,7 @@ dataset = dataset.batch(BATCH_SIZE, drop_remainder=True)
 EPOCHS = 10
 
 #encoderとdecorderを定義  get_sizeは後で変更
-encoder = Encoder(data_class.get_size(), len(input_train[0]), embedding_dim, units, BATCH_SIZE)
+encoder = Encoder(data_class.get_size(), embedding_dim, units, BATCH_SIZE)
 decoder = Decoder(data_class.get_size(), embedding_dim, units, BATCH_SIZE)
 
 #使う最適化アルゴリズムと損失関数を定義
@@ -59,16 +59,17 @@ def train_step(inp, targ, enc_hidden):
     loss = 0
     #自動微分できるようにする
     with tf.GradientTape() as tape:
+        #内部情報、最後の出力
         enc_output, enc_hidden = encoder(inp, enc_hidden)
 
         dec_hidden = enc_hidden
-
+        #batchsize分用意する
         dec_input = tf.expand_dims([targ_lang['<start>']] * BATCH_SIZE, 1)
 
         # Teacher Forcing - 正解値を次の入力として供給
         for t in range(1, targ.shape[1]):
-            # passing enc_output to the decoder
-            predictions, dec_hidden, _ = decoder(dec_input, dec_hidden, enc_output)
+            # passing enc_output to the decoder    (start, encorderの最後の出力, encorderの内部情報)2,3引数はattentionにも使う
+            predictions, dec_hidden, _ = decoder(dec_input, dec_hidden, enc_output)＜＜＜＜＜
 
             loss += loss_function(targ[:, t], predictions)
 
