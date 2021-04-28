@@ -28,8 +28,8 @@ dataset = dataset.batch(BATCH_SIZE, drop_remainder=True)
 EPOCHS = 10
 
 #encoderとdecorderを定義  get_sizeは後で変更
-encoder = Encoder(data_class.get_size(), embedding_dim, units, BATCH_SIZE)
-decoder = Decoder(data_class.get_size(), embedding_dim, units, BATCH_SIZE)
+encoder = Encoder(data_class.get_size(), embedding_dim, units, BATCH_SIZE,len(input_train[0]))
+decoder = Decoder(data_class.get_size(), embedding_dim, units, BATCH_SIZE,len(output_train[0]))
 
 #使う最適化アルゴリズムと損失関数を定義
 optimizer = tf.keras.optimizers.Adam()
