@@ -13,6 +13,13 @@ class DatasetMaker():
         self.output_out=dataset_path+"/"+output_out
         self.input_id=dataset_path+"/"+input_id
         self.output_id=dataset_path+"/"+output_id
+        self.dict_word={}
+        self.dict_num={}
+        self.dict_num[0]="<PAD>"
+        self.dict_word["<PAD>"]=0
+        self.dict_word["<start>"]=1
+        self.dict_num[1]="<start>"
+        self.word_number=1
 
     def normalization(self):
         with open ("../sequence.txt","r") as f:
@@ -20,7 +27,7 @@ class DatasetMaker():
                 for str in f:
                     #print(str)
                     str2=re.sub("\（.+?\）", "", str)
-                    str3=re.sub("F\d*","human",str2)
+                    str3=re.sub("[A-Z]\d*","human",str2)
                     str4=re.sub(r"[,.!?:;' ]", "",str3)
                     w.write(str4)
 
@@ -50,14 +57,7 @@ class DatasetMaker():
         output_txt.close()
 
 
-    def changer(self,file_name,write_name):
-        self.dict_word={}
-        self.dict_num={}
-        word_number=1
-        self.dict_num[0]="<PAD>"
-        self.dict_word["<PAD>"]=0
-        self.dict_word["<start>"]=1
-        self.dict_num[1]="<start>"
+    def changer(self,file_name,write_name,):
         with open(file_name,"r") as f:
             with open(write_name,"w") as w:
                 for str_line in f:
@@ -66,9 +66,9 @@ class DatasetMaker():
                         if word in self.dict_word:
                             id_str.append(self.dict_word[word])
                         else:
-                            word_number=word_number+1
-                            self.dict_word[word]=word_number
-                            self.dict_num[word_number]=word
+                            self.word_number=self.word_number+1
+                            self.dict_word[word]=self.word_number
+                            self.dict_num[self.word_number]=word
                             id_str.append(self.dict_word[word])
                     w.write(' '.join(map(str,id_str))+"\n")
                     id_str.clear()
