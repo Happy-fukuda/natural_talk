@@ -11,7 +11,8 @@ class Encoder(tf.keras.Model):
         self.batch_sz = batch_sz
         self.enc_units = enc_units
 
-        self.embedding = tf.keras.layers.Embedding(vocab_size, embedding_dim,input_length=input_length)
+        self.embedding = tf.keras.layers.Embedding(vocab_size,
+                        embedding_dim,input_length=input_length)
         self.gru = tf.keras.layers.GRU(self.enc_units,
                                        return_sequences=True,
                                        return_state=True,
@@ -19,7 +20,7 @@ class Encoder(tf.keras.Model):
 
     def call(self, x, hidden):
         x = self.embedding(x)
-        print("embed shape:"+x.shape)
+        print("embed shape:"+str(x.shape))
         output, state = self.gru(x, initial_state = hidden)
         return output, state
 
@@ -33,7 +34,7 @@ class BahdanauAttention(tf.keras.layers.Layer):
         self.W1 = tf.keras.layers.Dense(units)
         self.W2 = tf.keras.layers.Dense(units)
         self.V = tf.keras.layers.Dense(1)
-
+    #
     def call(self, query, values):
         # hidden shape == (batch_size, hidden size)
         # hidden_with_time_axis shape == (batch_size, 1, hidden size)
@@ -43,6 +44,8 @@ class BahdanauAttention(tf.keras.layers.Layer):
         # score shape == (batch_size, max_length, 1)
         # スコアを self.V に適用するために最後の軸は 1 となる
         # self.V に適用する前のテンソルの shape は  (batch_size, max_length, units)
+        #w1+w2(shapeは(64,1,1024)+(64,1024))でshapeは(64,64,1024)
+        #上はw1とw2を加算しているのではなく埋め込んでいる
         score = self.V(tf.nn.tanh(
             self.W1(values) + self.W2(hidden_with_time_axis)))
 
@@ -70,7 +73,7 @@ class Decoder(tf.keras.Model):
 
         # アテンションのため
         self.attention = BahdanauAttention(self.dec_units)
-
+    #x:はじめ＜start＞ hidden
     def call(self, x, hidden, enc_output):
         # enc_output の shape == (batch_size, max_length, hidden_size)
         context_vector, attention_weights = self.attention(hidden, enc_output)
