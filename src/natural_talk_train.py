@@ -74,6 +74,7 @@ def train_step(inp, targ, enc_hidden):
             loss += loss_function(targ[:, t], predictions)
 
             # Teacher Forcing を使用
+            #1ずつずらす
             dec_input = tf.expand_dims(targ[:, t], 1)
 
     batch_loss = (loss / int(targ.shape[1]))
@@ -82,7 +83,7 @@ def train_step(inp, targ, enc_hidden):
 
     gradients = tape.gradient(loss, variables)
 
-    optimizer.apply_gradients(zip(gradients, variables))　#adam
+    optimizer.apply_gradients(zip(gradients, variables))#adam
 
     return batch_loss
 

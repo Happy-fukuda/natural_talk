@@ -38,14 +38,12 @@ class BahdanauAttention(tf.keras.layers.Layer):
     def call(self, query, values):
         # hidden shape == (batch_size, hidden size)
         # hidden_with_time_axis shape == (batch_size, 1, hidden size)
-        # スコアを計算するためにこのように加算を実行する
+        # 次元数を合わせないと加算できない
         hidden_with_time_axis = tf.expand_dims(query, 1)
 
         # score shape == (batch_size, max_length, 1)
         # スコアを self.V に適用するために最後の軸は 1 となる
         # self.V に適用する前のテンソルの shape は  (batch_size, max_length, units)
-        #w1+w2(shapeは(64,1,1024)+(64,1024))でshapeは(64,64,1024)
-        #上はw1とw2を加算しているのではなく埋め込んでいる
         score = self.V(tf.nn.tanh(
             self.W1(values) + self.W2(hidden_with_time_axis)))
 
@@ -73,16 +71,17 @@ class Decoder(tf.keras.Model):
 
         # アテンションのため
         self.attention = BahdanauAttention(self.dec_units)
-    #x:はじめ＜start＞ hidden
+    #x:はじめ＜start＞
     def call(self, x, hidden, enc_output):
         # enc_output の shape == (batch_size, max_length, hidden_size)
+        #attentionを適応したベクトル,単語の割合(確率)
         context_vector, attention_weights = self.attention(hidden, enc_output)
 
         # 埋め込み層を通過したあとの x の shape  == (batch_size, 1, embedding_dim)
         x = self.embedding(x)
 
         # 結合後の x の shape == (batch_size, 1, embedding_dim + hidden_size)
-        x = tf.concat([tf.expand_dims(context_vector, 1), x], axis=-1)
+        x = tf.concat([tf.expand_dims(context_vector, 1), x], axis=-1)   <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<,
 
         # 結合したベクトルを GRU 層に渡す
         output, state = self.gru(x)
