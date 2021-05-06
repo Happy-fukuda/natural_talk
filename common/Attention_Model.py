@@ -27,14 +27,13 @@ class Encoder(tf.keras.Model):
     def initialize_hidden_state(self):
         return tf.zeros((self.batch_sz, self.enc_units)) #batch*enc_unitsのゼロの行列
 
-
+##
 class BahdanauAttention(tf.keras.layers.Layer):
     def __init__(self, units):
         super(BahdanauAttention, self).__init__()
         self.W1 = tf.keras.layers.Dense(units)
         self.W2 = tf.keras.layers.Dense(units)
         self.V = tf.keras.layers.Dense(1)
-    #
     def call(self, query, values):
         # hidden shape == (batch_size, hidden size)
         # hidden_with_time_axis shape == (batch_size, 1, hidden size)
@@ -81,7 +80,7 @@ class Decoder(tf.keras.Model):
         x = self.embedding(x)
 
         # 結合後の x の shape == (batch_size, 1, embedding_dim + hidden_size)
-        x = tf.concat([tf.expand_dims(context_vector, 1), x], axis=-1)   <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<,
+        x = tf.concat([tf.expand_dims(context_vector, 1), x], axis=-1)
 
         # 結合したベクトルを GRU 層に渡す
         output, state = self.gru(x)
