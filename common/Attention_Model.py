@@ -3,7 +3,7 @@
 import tensorflow as tf
 from tensorflow import keras
 import numpy as np
-
+import os
 
 class Encoder(tf.keras.Model):
     def __init__(self, vocab_size, embedding_dim, enc_units, batch_sz,input_length):
