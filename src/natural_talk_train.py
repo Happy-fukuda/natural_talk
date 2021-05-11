@@ -18,7 +18,7 @@ BUFFER_SIZE = len(input_train)
 BATCH_SIZE = 32
 steps_per_epoch = len(input_train)//BATCH_SIZE
 embedding_dim = 256
-units = 1024
+units = 512
 
 #datasetをバッチに分解
 dataset = tf.data.Dataset.from_tensor_slices((input_train, output_train)).shuffle(BUFFER_SIZE)
