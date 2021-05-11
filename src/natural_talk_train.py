@@ -10,6 +10,9 @@ sys.path.append('..')
 from common import data_operation
 from common.Attention_Model import *
 #datasetのロード
+print("Num GPUs Available: ", len(tf.config.experimental.list_physical_devices('GPU')))
+
+
 data_class=data_operation.DataOperation()
 (input_train,input_test) , (output_train , output_test) = data_class.data_load()
 targ_lang,targ_num=data_class.word_dict()
