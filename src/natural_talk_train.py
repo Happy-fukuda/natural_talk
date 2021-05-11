@@ -15,7 +15,7 @@ data_class=data_operation.DataOperation()
 targ_lang,targ_num=data_class.word_dict()
 
 BUFFER_SIZE = len(input_train)
-BATCH_SIZE = 64
+BATCH_SIZE = 32
 steps_per_epoch = len(input_train)//BATCH_SIZE
 embedding_dim = 256
 units = 1024
