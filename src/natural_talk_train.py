@@ -18,10 +18,10 @@ data_class=data_operation.DataOperation()
 targ_lang,targ_num=data_class.word_dict()
 
 BUFFER_SIZE = len(input_train)
-BATCH_SIZE = 16
+BATCH_SIZE = int(32/2)
 steps_per_epoch = len(input_train)//BATCH_SIZE
-embedding_dim = 256
-units = 1024
+embedding_dim = int(256/2)
+units = int(1024/2)
 
 #datasetをバッチに分解
 dataset = tf.data.Dataset.from_tensor_slices((input_train, output_train)).shuffle(BUFFER_SIZE)
@@ -92,6 +92,7 @@ def train_step(inp, targ, enc_hidden):
 
 
 if __name__=="__main__":
+    print("start trainning")
     for epoch in range(EPOCHS):
         start = time.time()
 

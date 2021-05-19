@@ -43,8 +43,12 @@ class BahdanauAttention(tf.keras.layers.Layer):
         # score shape == (batch_size, max_length, 1)
         # スコアを self.V に適用するために最後の軸は 1 となる
         # self.V に適用する前のテンソルの shape は  (batch_size, max_length, units)
+        print("shape")
+        print(values.shape,hidden_with_time_axis.shape)
+        w1=self.W1(values)
+        w2=self.W2(hidden_with_time_axis)
         score = self.V(tf.nn.tanh(
-            self.W1(values) + self.W2(hidden_with_time_axis)))
+            w1 + w2))
 
         # attention_weights の shape == (batch_size, max_length, 1)
         attention_weights = tf.nn.softmax(score, axis=1)
