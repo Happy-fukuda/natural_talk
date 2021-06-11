@@ -18,8 +18,10 @@ class DatasetMaker():
         self.dict_num[0]="<PAD>"
         self.dict_word["<PAD>"]=0
         self.dict_word["<start>"]=1
+        self.dict_word["<end>"]=2
+        self.dict_num[2]="<end>"
         self.dict_num[1]="<start>"
-        self.word_number=1
+        self.word_number=2
 
     def normalization(self):
         with open ("../sequence.txt","r") as f:
@@ -61,7 +63,7 @@ class DatasetMaker():
         with open(file_name,"r") as f:
             with open(write_name,"w") as w:
                 for str_line in f:
-                    id_str=[]
+                    id_str=[dict_num["<start>"]]
                     for word in str_line.split():
                         if word in self.dict_word:
                             id_str.append(self.dict_word[word])
@@ -70,6 +72,7 @@ class DatasetMaker():
                             self.dict_word[word]=self.word_number
                             self.dict_num[self.word_number]=word
                             id_str.append(self.dict_word[word])
+                    id_str.append(dict_num["<end>"])
                     w.write(' '.join(map(str,id_str))+"\n")
                     id_str.clear()
 
