@@ -63,7 +63,7 @@ class DatasetMaker():
         with open(file_name,"r") as f:
             with open(write_name,"w") as w:
                 for str_line in f:
-                    id_str=[dict_num["<start>"]]
+                    id_str=[self.dict_word["<start>"]]
                     for word in str_line.split():
                         if word in self.dict_word:
                             id_str.append(self.dict_word[word])
@@ -72,7 +72,7 @@ class DatasetMaker():
                             self.dict_word[word]=self.word_number
                             self.dict_num[self.word_number]=word
                             id_str.append(self.dict_word[word])
-                    id_str.append(dict_num["<end>"])
+                    id_str.append(self.dict_word["<end>"])
                     w.write(' '.join(map(str,id_str))+"\n")
                     id_str.clear()
 
