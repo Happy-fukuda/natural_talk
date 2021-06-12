@@ -32,10 +32,9 @@ dataset = dataset.batch(BATCH_SIZE, drop_remainder=True)
 encoder = Encoder(data_class.get_size(), embedding_dim, units, BATCH_SIZE,len(input_train[0]))
 decoder = Decoder(data_class.get_size(), embedding_dim, units, BATCH_SIZE,len(output_train[0]))
 
-#使う最適化アルゴリズムと損失関数を定義
+#使う最適化アルゴリズム
 optimizer = tf.keras.optimizers.Adam()
-loss_object = tf.keras.losses.SparseCategoricalCrossentropy(
-            from_logits=True, reduction='none')
+
 
 #保存するための変数を定義
 checkpoint_dir = '../../learned_data/training_checkpoints1'
@@ -53,7 +52,7 @@ def preprocess_sentence(str):
     str2=re.sub("\（.+?\）", "", str)
     str3=re.sub("[A-Z]\d*","human",str2)
     str4=re.sub(r"[,.!?:;' ]", "",str3)
-    return wakati.parse(str4)
+    return "<start> "+wakati.parse(str4)+" <end>"
 
 
 def evaluate(sentence):
@@ -62,9 +61,10 @@ def evaluate(sentence):
 
     inputs = [targ_lang[i] for i in sentence.split(' ')]
     inputs = tf.keras.preprocessing.sequence.pad_sequences([inputs],
-                                                           value=dict_word["<PAD>"]
+                                                           value=targ_lang["<PAD>"]
                                                            maxlen=len(input_train[0]),
                                                            padding='post')
+    #tensorにする
     inputs = tf.convert_to_tensor(inputs)
 
     result = ''
@@ -82,7 +82,7 @@ def evaluate(sentence):
 
         predicted_id = tf.argmax(predictions[0]).numpy()
 
-        result += targ_lang.index_word[predicted_id] + ' '
+        result += targ_num[predicted_id] + ' '
 
         if targ_lang[predicted_id] == '<end>':
             return result, sentence
@@ -97,5 +97,9 @@ def evaluate(sentence):
 def translate(sentence):
     result, sentence = evaluate(sentence)
 
-    print('Input: %s' % (sentence))
     print('response: {}'.format(result))
+
+if __name__=='__main__':
+    while(1):
+        str=input("input:")
+        translate(str)
