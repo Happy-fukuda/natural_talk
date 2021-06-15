@@ -38,12 +38,12 @@ loss_object = tf.keras.losses.SparseCategoricalCrossentropy(
             from_logits=True, reduction='none')
 
 #保存するための変数を定義
-checkpoint_dir = '../../learned_data/training_checkpoints1'
+checkpoint_dir = '../../learned_data/training_checkpoints2'
 checkpoint_prefix = os.path.join(checkpoint_dir, "ckpt")
 checkpoint = tf.train.Checkpoint(optimizer=optimizer,
                                  encoder=encoder,
                                  decoder=decoder)
-
+print("load data")
 checkpoint.restore(tf.train.latest_checkpoint(checkpoint_dir))
 
 #正規化
@@ -62,7 +62,7 @@ def evaluate(sentence):
 
     inputs = [targ_lang[i] for i in sentence.split(' ')]
     inputs = tf.keras.preprocessing.sequence.pad_sequences([inputs],
-                                                           value=dict_word["<PAD>"]
+                                                           value=tang_lang["<PAD>"],
                                                            maxlen=len(input_train[0]),
                                                            padding='post')
     inputs = tf.convert_to_tensor(inputs)

@@ -1,0 +1,312 @@
+2021-06-14 18:23:42.276781: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcuda.so.1
+2021-06-14 18:23:42.309550: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:1006] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2021-06-14 18:23:42.310110: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1618] Found device 0 with properties: 
+name: GeForce GTX 1080 Ti major: 6 minor: 1 memoryClockRate(GHz): 1.683
+pciBusID: 0000:07:00.0
+2021-06-14 18:23:42.310260: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcudart.so.10.0
+2021-06-14 18:23:42.311230: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcublas.so.10.0
+2021-06-14 18:23:42.312029: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcufft.so.10.0
+2021-06-14 18:23:42.312208: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcurand.so.10.0
+2021-06-14 18:23:42.313305: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcusolver.so.10.0
+2021-06-14 18:23:42.314115: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcusparse.so.10.0
+2021-06-14 18:23:42.316953: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcudnn.so.7
+2021-06-14 18:23:42.317038: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:1006] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2021-06-14 18:23:42.317744: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:1006] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2021-06-14 18:23:42.318328: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1746] Adding visible gpu devices: 0
+2021-06-14 18:23:42.607911: I tensorflow/core/platform/cpu_feature_guard.cc:142] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 FMA
+2021-06-14 18:23:42.611403: I tensorflow/core/platform/profile_utils/cpu_utils.cc:94] CPU Frequency: 2699905000 Hz
+2021-06-14 18:23:42.611622: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x43928d0 executing computations on platform Host. Devices:
+2021-06-14 18:23:42.611636: I tensorflow/compiler/xla/service/service.cc:175]   StreamExecutor device (0): Host, Default Version
+2021-06-14 18:23:42.710408: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:1006] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2021-06-14 18:23:42.710958: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x43946a0 executing computations on platform CUDA. Devices:
+2021-06-14 18:23:42.710974: I tensorflow/compiler/xla/service/service.cc:175]   StreamExecutor device (0): GeForce GTX 1080 Ti, Compute Capability 6.1
+2021-06-14 18:23:42.711091: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:1006] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2021-06-14 18:23:42.711542: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1618] Found device 0 with properties: 
+name: GeForce GTX 1080 Ti major: 6 minor: 1 memoryClockRate(GHz): 1.683
+pciBusID: 0000:07:00.0
+2021-06-14 18:23:42.711563: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcudart.so.10.0
+2021-06-14 18:23:42.711571: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcublas.so.10.0
+2021-06-14 18:23:42.711578: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcufft.so.10.0
+2021-06-14 18:23:42.711588: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcurand.so.10.0
+2021-06-14 18:23:42.711595: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcusolver.so.10.0
+2021-06-14 18:23:42.711601: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcusparse.so.10.0
+2021-06-14 18:23:42.711608: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcudnn.so.7
+2021-06-14 18:23:42.711639: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:1006] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2021-06-14 18:23:42.712090: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:1006] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2021-06-14 18:23:42.712520: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1746] Adding visible gpu devices: 0
+2021-06-14 18:23:42.712540: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcudart.so.10.0
+2021-06-14 18:23:42.713180: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1159] Device interconnect StreamExecutor with strength 1 edge matrix:
+2021-06-14 18:23:42.713189: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1165]      0 
+2021-06-14 18:23:42.713194: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1178] 0:   N 
+2021-06-14 18:23:42.713264: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:1006] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2021-06-14 18:23:42.718397: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:1006] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2021-06-14 18:23:42.718870: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1304] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 10339 MB memory) -> physical GPU (device: 0, name: GeForce GTX 1080 Ti, pci bus id: 0000:07:00.0, compute capability: 6.1)
+2021-06-14 18:23:43.176499: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcudnn.so.7
+2021-06-14 18:23:43.631205: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcublas.so.10.0
+2021-06-14 18:32:55.880817: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcuda.so.1
+2021-06-14 18:32:55.918575: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:1006] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2021-06-14 18:32:55.919125: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1618] Found device 0 with properties: 
+name: GeForce GTX 1080 Ti major: 6 minor: 1 memoryClockRate(GHz): 1.683
+pciBusID: 0000:07:00.0
+2021-06-14 18:32:55.919266: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcudart.so.10.0
+2021-06-14 18:32:55.920236: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcublas.so.10.0
+2021-06-14 18:32:55.921029: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcufft.so.10.0
+2021-06-14 18:32:55.921211: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcurand.so.10.0
+2021-06-14 18:32:55.922306: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcusolver.so.10.0
+2021-06-14 18:32:55.923100: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcusparse.so.10.0
+2021-06-14 18:32:55.925869: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcudnn.so.7
+2021-06-14 18:32:55.925952: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:1006] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2021-06-14 18:32:55.926558: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:1006] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2021-06-14 18:32:55.927057: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1746] Adding visible gpu devices: 0
+2021-06-14 18:32:56.218051: I tensorflow/core/platform/cpu_feature_guard.cc:142] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 FMA
+2021-06-14 18:32:56.221570: I tensorflow/core/platform/profile_utils/cpu_utils.cc:94] CPU Frequency: 2699905000 Hz
+2021-06-14 18:32:56.221855: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x5814000 executing computations on platform Host. Devices:
+2021-06-14 18:32:56.221872: I tensorflow/compiler/xla/service/service.cc:175]   StreamExecutor device (0): Host, Default Version
+2021-06-14 18:32:56.315554: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:1006] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2021-06-14 18:32:56.316087: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x5815dd0 executing computations on platform CUDA. Devices:
+2021-06-14 18:32:56.316109: I tensorflow/compiler/xla/service/service.cc:175]   StreamExecutor device (0): GeForce GTX 1080 Ti, Compute Capability 6.1
+2021-06-14 18:32:56.316209: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:1006] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2021-06-14 18:32:56.316640: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1618] Found device 0 with properties: 
+name: GeForce GTX 1080 Ti major: 6 minor: 1 memoryClockRate(GHz): 1.683
+pciBusID: 0000:07:00.0
+2021-06-14 18:32:56.316658: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcudart.so.10.0
+2021-06-14 18:32:56.316666: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcublas.so.10.0
+2021-06-14 18:32:56.316671: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcufft.so.10.0
+2021-06-14 18:32:56.316677: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcurand.so.10.0
+2021-06-14 18:32:56.316683: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcusolver.so.10.0
+2021-06-14 18:32:56.316689: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcusparse.so.10.0
+2021-06-14 18:32:56.316695: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcudnn.so.7
+2021-06-14 18:32:56.316721: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:1006] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2021-06-14 18:32:56.317180: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:1006] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2021-06-14 18:32:56.317597: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1746] Adding visible gpu devices: 0
+2021-06-14 18:32:56.317616: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcudart.so.10.0
+2021-06-14 18:32:56.318351: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1159] Device interconnect StreamExecutor with strength 1 edge matrix:
+2021-06-14 18:32:56.318367: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1165]      0 
+2021-06-14 18:32:56.318372: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1178] 0:   N 
+2021-06-14 18:32:56.318439: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:1006] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2021-06-14 18:32:56.318881: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:1006] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2021-06-14 18:32:56.319338: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1304] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 10339 MB memory) -> physical GPU (device: 0, name: GeForce GTX 1080 Ti, pci bus id: 0000:07:00.0, compute capability: 6.1)
+2021-06-14 18:32:56.780597: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcudnn.so.7
+2021-06-14 18:32:57.232965: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcublas.so.10.0
+Num GPUs Available:  1
+start trainning
+Epoch 1 Batch 0 Loss 0.5482
+Epoch 1 Batch 100 Loss 0.5708
+Epoch 1 Batch 200 Loss 0.1660
+Epoch 1 Batch 300 Loss 0.3238
+Epoch 1 Batch 400 Loss 0.2018
+Epoch 1 Batch 500 Loss 0.2263
+Epoch 1 Batch 600 Loss 0.2327
+Epoch 1 Batch 700 Loss 0.2460
+Epoch 1 Batch 800 Loss 0.2276
+Epoch 1 Batch 900 Loss 0.2358
+Epoch 1 Batch 1000 Loss 0.1272
+Epoch 1 Batch 1100 Loss 0.3303
+Epoch 1 Batch 1200 Loss 0.1636
+Epoch 1 Batch 1300 Loss 0.2551
+Epoch 1 Batch 1400 Loss 0.1855
+Epoch 1 Batch 1500 Loss 0.1788
+Epoch 1 Batch 1600 Loss 0.2300
+Epoch 1 Batch 1700 Loss 0.2525
+Epoch 1 Batch 1800 Loss 0.1099
+Epoch 1 Loss 0.2423
+Time taken for 1 epoch 3490.696560382843 sec
+
+Epoch 2 Batch 0 Loss 0.1816
+Epoch 2 Batch 100 Loss 0.1863
+Epoch 2 Batch 200 Loss 0.2379
+Epoch 2 Batch 300 Loss 0.3855
+Epoch 2 Batch 400 Loss 0.2172
+Epoch 2 Batch 500 Loss 0.1528
+Epoch 2 Batch 600 Loss 0.1510
+Epoch 2 Batch 700 Loss 0.1033
+Epoch 2 Batch 800 Loss 0.2871
+Epoch 2 Batch 900 Loss 0.2442
+Epoch 2 Batch 1000 Loss 0.1983
+Epoch 2 Batch 1100 Loss 0.3462
+Epoch 2 Batch 1200 Loss 0.1206
+Epoch 2 Batch 1300 Loss 0.2451
+Epoch 2 Batch 1400 Loss 0.1912
+Epoch 2 Batch 1500 Loss 0.2321
+Epoch 2 Batch 1600 Loss 0.3306
+Epoch 2 Batch 1700 Loss 0.2238
+Epoch 2 Batch 1800 Loss 0.2009
+Epoch 2 Loss 0.2088
+Time taken for 1 epoch 3511.4338867664337 sec
+
+Epoch 3 Batch 0 Loss 0.1828
+Epoch 3 Batch 100 Loss 0.1874
+Epoch 3 Batch 200 Loss 0.1894
+Epoch 3 Batch 300 Loss 0.1392
+Epoch 3 Batch 400 Loss 0.1963
+Epoch 3 Batch 500 Loss 0.1830
+Epoch 3 Batch 600 Loss 0.3214
+Epoch 3 Batch 700 Loss 0.1986
+Epoch 3 Batch 800 Loss 0.1680
+Epoch 3 Batch 900 Loss 0.1612
+Epoch 3 Batch 1000 Loss 0.2282
+Epoch 3 Batch 1100 Loss 0.2175
+Epoch 3 Batch 1200 Loss 0.2210
+Epoch 3 Batch 1300 Loss 0.1524
+Epoch 3 Batch 1400 Loss 0.1500
+Epoch 3 Batch 1500 Loss 0.2126
+Epoch 3 Batch 1600 Loss 0.1236
+Epoch 3 Batch 1700 Loss 0.1525
+Epoch 3 Batch 1800 Loss 0.2272
+Epoch 3 Loss 0.1974
+Time taken for 1 epoch 3507.95200920105 sec
+
+Epoch 4 Batch 0 Loss 0.2095
+Epoch 4 Batch 100 Loss 0.2179
+Epoch 4 Batch 200 Loss 0.2368
+Epoch 4 Batch 300 Loss 0.1574
+Epoch 4 Batch 400 Loss 0.1283
+Epoch 4 Batch 500 Loss 0.1650
+Epoch 4 Batch 600 Loss 0.1989
+Epoch 4 Batch 700 Loss 0.1909
+Epoch 4 Batch 800 Loss 0.1729
+Epoch 4 Batch 900 Loss 0.2170
+Epoch 4 Batch 1000 Loss 0.1808
+Epoch 4 Batch 1100 Loss 0.2373
+Epoch 4 Batch 1200 Loss 0.1566
+Epoch 4 Batch 1300 Loss 0.1668
+Epoch 4 Batch 1400 Loss 0.1149
+Epoch 4 Batch 1500 Loss 0.3695
+Epoch 4 Batch 1600 Loss 0.1438
+Epoch 4 Batch 1700 Loss 0.1753
+Epoch 4 Batch 1800 Loss 0.1720
+Epoch 4 Loss 0.1896
+Time taken for 1 epoch 3508.8386228084564 sec
+
+Epoch 5 Batch 0 Loss 0.1699
+Epoch 5 Batch 100 Loss 0.1087
+Epoch 5 Batch 200 Loss 0.2342
+Epoch 5 Batch 300 Loss 0.1912
+Epoch 5 Batch 400 Loss 0.1839
+Epoch 5 Batch 500 Loss 0.1509
+Epoch 5 Batch 600 Loss 0.1893
+Epoch 5 Batch 700 Loss 0.1995
+Epoch 5 Batch 800 Loss 0.1319
+Epoch 5 Batch 900 Loss 0.1933
+Epoch 5 Batch 1000 Loss 0.1049
+Epoch 5 Batch 1100 Loss 0.1785
+Epoch 5 Batch 1200 Loss 0.1866
+Epoch 5 Batch 1300 Loss 0.1789
+Epoch 5 Batch 1400 Loss 0.1977
+Epoch 5 Batch 1500 Loss 0.1638
+Epoch 5 Batch 1600 Loss 0.1470
+Epoch 5 Batch 1700 Loss 0.1467
+Epoch 5 Batch 1800 Loss 0.1409
+Epoch 5 Loss 0.1828
+Time taken for 1 epoch 3508.1058452129364 sec
+
+Epoch 6 Batch 0 Loss 0.1785
+Epoch 6 Batch 100 Loss 0.2541
+Epoch 6 Batch 200 Loss 0.1371
+Epoch 6 Batch 300 Loss 0.1640
+Epoch 6 Batch 400 Loss 0.2116
+Epoch 6 Batch 500 Loss 0.2005
+Epoch 6 Batch 600 Loss 0.1768
+Epoch 6 Batch 700 Loss 0.2326
+Epoch 6 Batch 800 Loss 0.1529
+Epoch 6 Batch 900 Loss 0.1580
+Epoch 6 Batch 1000 Loss 0.1380
+Epoch 6 Batch 1100 Loss 0.1522
+Epoch 6 Batch 1200 Loss 0.1375
+Epoch 6 Batch 1300 Loss 0.2306
+Epoch 6 Batch 1400 Loss 0.2501
+Epoch 6 Batch 1500 Loss 0.1772
+Epoch 6 Batch 1600 Loss 0.1661
+Epoch 6 Batch 1700 Loss 0.1278
+Epoch 6 Batch 1800 Loss 0.1774
+Epoch 6 Loss 0.1763
+Time taken for 1 epoch 3511.152172803879 sec
+
+Epoch 7 Batch 0 Loss 0.1532
+Epoch 7 Batch 100 Loss 0.2073
+Epoch 7 Batch 200 Loss 0.1644
+Epoch 7 Batch 300 Loss 0.1066
+Epoch 7 Batch 400 Loss 0.1596
+Epoch 7 Batch 500 Loss 0.1535
+Epoch 7 Batch 600 Loss 0.2275
+Epoch 7 Batch 700 Loss 0.1443
+Epoch 7 Batch 800 Loss 0.2392
+Epoch 7 Batch 900 Loss 0.1787
+Epoch 7 Batch 1000 Loss 0.1490
+Epoch 7 Batch 1100 Loss 0.1524
+Epoch 7 Batch 1200 Loss 0.2016
+Epoch 7 Batch 1300 Loss 0.1812
+Epoch 7 Batch 1400 Loss 0.1483
+Epoch 7 Batch 1500 Loss 0.1762
+Epoch 7 Batch 1600 Loss 0.0819
+Epoch 7 Batch 1700 Loss 0.2209
+Epoch 7 Batch 1800 Loss 0.2162
+Epoch 7 Loss 0.1694
+Time taken for 1 epoch 3511.712160348892 sec
+
+Epoch 8 Batch 0 Loss 0.2162
+Epoch 8 Batch 100 Loss 0.0996
+Epoch 8 Batch 200 Loss 0.1652
+Epoch 8 Batch 300 Loss 0.2758
+Epoch 8 Batch 400 Loss 0.1608
+Epoch 8 Batch 500 Loss 0.1744
+Epoch 8 Batch 600 Loss 0.1075
+Epoch 8 Batch 700 Loss 0.1962
+Epoch 8 Batch 800 Loss 0.1642
+Epoch 8 Batch 900 Loss 0.1890
+Epoch 8 Batch 1000 Loss 0.1198
+Epoch 8 Batch 1100 Loss 0.2142
+Epoch 8 Batch 1200 Loss 0.1617
+Epoch 8 Batch 1300 Loss 0.1453
+Epoch 8 Batch 1400 Loss 0.1412
+Epoch 8 Batch 1500 Loss 0.2058
+Epoch 8 Batch 1600 Loss 0.1157
+Epoch 8 Batch 1700 Loss 0.1875
+Epoch 8 Batch 1800 Loss 0.1590
+Epoch 8 Loss 0.1620
+Time taken for 1 epoch 3512.536774635315 sec
+
+Epoch 9 Batch 0 Loss 0.1432
+Epoch 9 Batch 100 Loss 0.1572
+Epoch 9 Batch 200 Loss 0.0916
+Epoch 9 Batch 300 Loss 0.0997
+Epoch 9 Batch 400 Loss 0.1950
+Epoch 9 Batch 500 Loss 0.1170
+Epoch 9 Batch 600 Loss 0.1543
+Epoch 9 Batch 700 Loss 0.1418
+Epoch 9 Batch 800 Loss 0.1634
+Epoch 9 Batch 900 Loss 0.1918
+Epoch 9 Batch 1000 Loss 0.1486
+Epoch 9 Batch 1100 Loss 0.1411
+Epoch 9 Batch 1200 Loss 0.1364
+Epoch 9 Batch 1300 Loss 0.1182
+Epoch 9 Batch 1400 Loss 0.1960
+Epoch 9 Batch 1500 Loss 0.2065
+Epoch 9 Batch 1600 Loss 0.1452
+Epoch 9 Batch 1700 Loss 0.2665
+Epoch 9 Batch 1800 Loss 0.1040
+Epoch 9 Loss 0.1540
+Time taken for 1 epoch 3507.102527618408 sec
+
+Epoch 10 Batch 0 Loss 0.0872
+Epoch 10 Batch 100 Loss 0.1535
+Epoch 10 Batch 200 Loss 0.1445
+Epoch 10 Batch 300 Loss 0.1163
+Epoch 10 Batch 400 Loss 0.1158
+Epoch 10 Batch 500 Loss 0.1429
+Epoch 10 Batch 600 Loss 0.1474
+Epoch 10 Batch 700 Loss 0.1414
+Epoch 10 Batch 800 Loss 0.0969
+Epoch 10 Batch 900 Loss 0.0870
+Epoch 10 Batch 1000 Loss 0.0826
+Epoch 10 Batch 1100 Loss 0.1133
+Epoch 10 Batch 1200 Loss 0.1314
+Epoch 10 Batch 1300 Loss 0.2393
+Epoch 10 Batch 1400 Loss 0.1057
+Epoch 10 Batch 1500 Loss 0.1191
+Epoch 10 Batch 1600 Loss 0.0881
+Epoch 10 Batch 1700 Loss 0.1137
+Epoch 10 Batch 1800 Loss 0.1402
+Epoch 10 Loss 0.1453
+Time taken for 1 epoch 3507.1259410381317 sec
+
