@@ -40,7 +40,7 @@ loss_object = tf.keras.losses.SparseCategoricalCrossentropy(
             from_logits=True, reduction='none')
 
 #保存するための変数を定義
-checkpoint_dir = './training_checkpoints2'
+checkpoint_dir = './training_checkpoints_en'
 checkpoint_prefix = os.path.join(checkpoint_dir, "ckpt")
 checkpoint = tf.train.Checkpoint(optimizer=optimizer,
                                  encoder=encoder,
