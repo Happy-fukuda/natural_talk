@@ -6,7 +6,8 @@ import re
 
 class DatasetMaker():
     def __init__(self,dataset_path="../data",read_file="sequence.txt",
-                input_out="input_str.txt",output_out="output_str.txt",input_id="input_id.txt",output_id="output_id.txt"):
+                input_out="input_str.txt",output_out="output_str.txt",input_id="input_id.txt",
+                output_id="output_id.txt",lang="ja"):
         self.dataset_path=dataset_path
         self.read_file=dataset_path+"/"+read_file
         self.input_out=dataset_path+"/"+input_out
@@ -22,9 +23,12 @@ class DatasetMaker():
         self.dict_num[2]="<end>"
         self.dict_num[1]="<start>"
         self.word_number=2
+        with open(self.dataset_path+"/dataset_state.txt","w") as f:
+            f.write("raw_data="+read_file+"\n")
+            f.write("language="+lang)
 
     def normalization(self):
-        with open ("../sequence.txt","r") as f:
+        with open (self.read_file,"r") as f:
             with open(self.read_file,"w") as w:
                 for str in f:
                     #print(str)
