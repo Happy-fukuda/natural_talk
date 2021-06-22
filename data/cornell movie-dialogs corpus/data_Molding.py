@@ -18,16 +18,16 @@ def getLineid():
 def getConversation():
     for line in open("movie_conversations.txt","r",encoding="'iso-8859-1'"):
         #line_str=''.join(line.split()[6:]).replace('[','').replace(']','').replace(',',' ').replace("'",'')
-        line_str=''.join(re.findall('(?<=\[).+?(?=\])',line)).replace(',',' ').replace("'",'')
+        line_str=re.findall('(?<=\[).+?(?=\])',line)[0].replace(',',' ').replace("'",'')
         movie_conversation.append(line_str)
 
 def makeIOfile():
     input_f=open("input_str.txt","w")
     output_f=open("output_str.txt","w")
     for lines in movie_conversation:
-        lines=lines.split()
-        line_len=len(lines)-1
-        for i,line in enumerate(lines):
+        lines_ls=lines.split()
+        line_len=len(lines_ls)-1
+        for i,line in enumerate(lines_ls):
             if(i%2==0 and i!=line_len):
                 input_f.write(line_dict[line]+'\n')
             elif(i%2==1):
