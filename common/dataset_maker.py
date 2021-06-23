@@ -27,7 +27,7 @@ class DatasetMaker():
         with open(self.dataset_path+"/dataset_state.txt","w") as f:
             f.write("raw_data="+read_file+"\n")
             f.write("language="+lang)
-            f.write("max_data="+max_data)
+            f.write("max_data="+str(max_data))
 
     def normalization(self):
         with open (self.read_file,"r") as f:
