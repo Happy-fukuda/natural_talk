@@ -73,7 +73,7 @@ class DatasetMaker():
                     if (i>file_len):
                         break
                     id_str=[self.dict_word["<start>"]]
-                    for word in str_line.split():
+                    for word in str_line.replace("?"," ?").replace("."," .").replace("!"," !").split():
                         if word in self.dict_word:
                             id_str.append(self.dict_word[word])
                         else:
