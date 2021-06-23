@@ -69,7 +69,7 @@ class DatasetMaker():
         with open(file_name,"r") as f:
             with open(write_name,"w") as w:
                 for i,str_line in enumerate(f):
-                    if (i>=max_data):
+                    if (i>=self.max_data):
                         break
                     id_str=[self.dict_word["<start>"]]
                     for word in str_line.replace("?"," ?").replace("."," .").replace("!"," !").split():
