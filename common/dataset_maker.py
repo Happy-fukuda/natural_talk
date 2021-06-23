@@ -7,7 +7,7 @@ import re
 class DatasetMaker():
     def __init__(self,dataset_path="../data",read_file="sequence.txt",
                 input_out="input_str.txt",output_out="output_str.txt",input_id="input_id.txt",
-                output_id="output_id.txt",lang="ja",split_data=1):
+                output_id="output_id.txt",lang="ja",max_data=50000):
         self.dataset_path=dataset_path
         self.read_file=dataset_path+"/"+read_file
         self.input_out=dataset_path+"/"+input_out
@@ -23,7 +23,7 @@ class DatasetMaker():
         self.dict_num[2]="<end>"
         self.dict_num[1]="<start>"
         self.word_number=2
-        self.split_data=split_data
+        self.max_data=max_data
         with open(self.dataset_path+"/dataset_state.txt","w") as f:
             f.write("raw_data="+read_file+"\n")
             f.write("language="+lang)
@@ -67,10 +67,9 @@ class DatasetMaker():
 
     def changer(self,file_name,write_name,):
         with open(file_name,"r") as f:
-            file_len=int(len(f)*self.split_data)
             with open(write_name,"w") as w:
                 for i,str_line in enumerate(f):
-                    if (i>file_len):
+                    if (i>=max_data):
                         break
                     id_str=[self.dict_word["<start>"]]
                     for word in str_line.replace("?"," ?").replace("."," .").replace("!"," !").split():
