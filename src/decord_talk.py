@@ -12,7 +12,7 @@ sys.path.append('..')
 from common import data_operation
 from common.Attention_Model import *
 
-max_output=50
+max_output=100
 data_class=data_operation.DataOperation()
 (input_train,input_test) , (output_train , output_test) = data_class.data_load()
 targ_lang,targ_num=data_class.word_dict()
@@ -56,10 +56,12 @@ def preprocess_sentence(str):
     return "<start> "+wakati.parse(str4).replace("\n","")+"<end>"
 
 
-def evaluate(sentence):
+def evaluate(sentence,Jp_=True):
     try:
-
-        sentence = preprocess_sentence(sentence)
+        if Jp_:
+            sentence = preprocess_sentence(sentence)
+        else:
+            sentence=sentence.replace("."," .").replace("?", " ?").replace("!"," !")
         print(sentence,sentence.split(' '))
         inputs = [targ_lang[i] for i in sentence.split(' ')]
         inputs = tf.keras.preprocessing.sequence.pad_sequences([inputs],
@@ -92,7 +94,7 @@ def evaluate(sentence):
         result += targ_num[predicted_id] + ' '
 
         if targ_num[predicted_id] == '<end>':
-            return result, sentence 
+            return result, sentence
 
         # 予測された ID がモデルに戻される
         dec_input = tf.expand_dims([predicted_id], 0)
@@ -101,12 +103,11 @@ def evaluate(sentence):
 
 
 
-def translate(sentence):
-    result, sentence = evaluate(sentence)
 
-    print('response: {}'.format(result))
 
 if __name__=='__main__':
     while(1):
         str=input("input:")
-        translate(str)
+        result, sentence = evaluate(sentence,Jp_=False)
+
+        print('response: {}'.format(result))
