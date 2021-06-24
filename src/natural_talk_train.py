@@ -10,18 +10,18 @@ sys.path.append('..')
 from common import data_operation
 from common.Attention_Model import *
 #datasetのロード
-print("Num GPUs Available: ", len(tf.config.experimental.list_physical_devices('GPU')))
+#print("Num GPUs Available: ", len(tf.config.experimental.list_physical_devices('GPU')))
 
 
 data_class=data_operation.DataOperation()
 (input_train,input_test) , (output_train , output_test) = data_class.data_load()
 targ_lang,targ_num=data_class.word_dict()
-
+split_num=1
 BUFFER_SIZE = len(input_train)
-BATCH_SIZE = int(32/2)
+BATCH_SIZE = int(16)
 steps_per_epoch = len(input_train)//BATCH_SIZE
-embedding_dim = int(256/2)
-units = int(1024/2)
+embedding_dim = int(256/8)
+units = int(1024/10)
 
 #datasetをバッチに分解
 dataset = tf.data.Dataset.from_tensor_slices((input_train, output_train)).shuffle(BUFFER_SIZE)

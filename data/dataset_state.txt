@@ -1,2 +1,2 @@
-raw_data=cornell movie-dialogs corpus
-language=En
+raw_data=movie
+language=Enmax_data=25000

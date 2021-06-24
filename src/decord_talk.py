@@ -18,10 +18,10 @@ data_class=data_operation.DataOperation()
 targ_lang,targ_num=data_class.word_dict()
 
 BUFFER_SIZE = len(input_train)
-BATCH_SIZE = int(32/2)
+BATCH_SIZE = int(16)
 steps_per_epoch = len(input_train)//BATCH_SIZE
-embedding_dim = int(256/2)
-units = int(1024/2)
+embedding_dim = int(256/8)
+units = int(1024/10)
 
 #datasetをバッチに分解
 dataset = tf.data.Dataset.from_tensor_slices((input_train, output_train)).shuffle(BUFFER_SIZE)
@@ -38,7 +38,7 @@ optimizer = tf.keras.optimizers.Adam()
 
 
 #保存するための変数を定義
-checkpoint_dir = '../../learn_data/training_checkpoints2'
+checkpoint_dir = '../../learn_data/training_checkpoints_en'
 checkpoint_prefix = os.path.join(checkpoint_dir, "ckpt")
 checkpoint = tf.train.Checkpoint(optimizer=optimizer,
                                  encoder=encoder,
