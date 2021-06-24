@@ -18,7 +18,7 @@ data_class=data_operation.DataOperation()
 targ_lang,targ_num=data_class.word_dict()
 
 BUFFER_SIZE = len(input_train)
-BATCH_SIZE = int(16)
+BATCH_SIZE = int(32)
 steps_per_epoch = len(input_train)//BATCH_SIZE
 embedding_dim = int(256/8)
 units = int(1024/10)
@@ -108,6 +108,6 @@ def evaluate(sentence,Jp_=True):
 if __name__=='__main__':
     while(1):
         str=input("input:")
-        result, sentence = evaluate(sentence,Jp_=False)
+        result, sentence = evaluate(str,Jp_=False)
 
         print('response: {}'.format(result))
