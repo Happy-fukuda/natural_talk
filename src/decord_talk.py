@@ -21,6 +21,7 @@ BUFFER_SIZE = len(input_train)
 BATCH_SIZE = int(20)
 steps_per_epoch = len(input_train)//BATCH_SIZE
 embedding_dim = int(256/8)
+#embedding_dim=64
 units = int(1024/10)
 
 #datasetをバッチに分解
@@ -79,6 +80,7 @@ def evaluate(sentence,Jp_=True):
     result = ''
 
     hidden = [tf.zeros((1, units))]
+    print(inputs.shape)
     enc_out, enc_hidden = encoder(inputs, hidden)
 
     dec_hidden = enc_hidden
