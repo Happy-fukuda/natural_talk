@@ -33,14 +33,14 @@ EPOCHS = 10
 #encoderとdecorderを定義  get_sizeは後で変更
 encoder = Encoder(data_class.get_size(), embedding_dim, units, BATCH_SIZE,len(input_train[0]))
 decoder = Decoder(data_class.get_size(), embedding_dim, units, BATCH_SIZE,len(output_train[0]))
-
+del data_class
 #使う最適化アルゴリズムと損失関数を定義
 optimizer = tf.keras.optimizers.Adam()
 loss_object = tf.keras.losses.SparseCategoricalCrossentropy(
             from_logits=True, reduction='none')
 
 #保存するための変数を定義
-checkpoint_dir = './training_checkpoints_en'
+checkpoint_dir = './training_checkpoints_ja'
 checkpoint_prefix = os.path.join(checkpoint_dir, "ckpt")
 checkpoint = tf.train.Checkpoint(optimizer=optimizer,
                                  encoder=encoder,
@@ -60,10 +60,11 @@ def loss_function(real, pred):
 #inp:batch input targ: batch output
 def train_step(inp, targ, enc_hidden):
     loss = 0
+    change_word=lambda x:[targ_num[int(i)] for i in x.split()]
     #自動微分できるようにする
     with tf.GradientTape() as tape:
         #内部情報、最後の出力
-        enc_output, enc_hidden = encoder(inp, enc_hidden)
+        enc_output, enc_hidden = encoder(list(map(change_word,inp)), enc_hidden)
 
         dec_hidden = enc_hidden
         #batchsize分用意する

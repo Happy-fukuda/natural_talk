@@ -2,14 +2,20 @@
 
 import MeCab
 import pickle as pk
+
 import re
+import numpy as np
+
+from sklearn import datasets
+
 
 class DatasetMaker():
-    def __init__(self,dataset_path="../data",read_file="sequence.txt",
+    def __init__(self,dataset_path="../data",read_file="sequence.txt",read_file2="sequence2.txt",
                 input_out="input_str.txt",output_out="output_str.txt",input_id="input_id.txt",
                 output_id="output_id.txt",lang="ja",max_data=50000):
         self.dataset_path=dataset_path
         self.read_file=dataset_path+"/"+read_file
+        self.read_file2=dataset_path+"/"+read_file2
         self.input_out=dataset_path+"/"+input_out
         self.output_out=dataset_path+"/"+output_out
         self.input_id=dataset_path+"/"+input_id
@@ -31,12 +37,13 @@ class DatasetMaker():
 
     def normalization(self):
         with open (self.read_file,"r") as f:
-            with open(self.read_file,"w") as w:
+            with open(self.read_file2,"w") as w:
                 for str in f:
                     #print(str)
                     str2=re.sub("\（.+?\）", "", str)
-                    str3=re.sub("[A-Z]\d*","human",str2)
+                    str3=re.sub("[A-Z]\d+","human",str2)
                     str4=re.sub(r"[,.!?:;' ]", "",str3)
+                    str4=re.sub(r"＊+","human",str4)
                     w.write(str4)
 
 
@@ -54,7 +61,7 @@ class DatasetMaker():
         wakati = MeCab.Tagger("-Owakati")
         input_txt=open(self.input_out,"w")
         output_txt=open(self.output_out,"w")
-        with open(self.read_file,"r") as f:
+        with open(self.read_file2,"r") as f:
             for str in f:
                 input_str,output_str=self.delethead(str)
                 if input_str:
@@ -90,6 +97,8 @@ class DatasetMaker():
         with open("../data/dict_word.pkl","wb") as p:
             pk.dump(self.dict_word,p)
             pk.dump(self.dict_num,p)
+
+
 
     def all_run(self):
         self.normalization()

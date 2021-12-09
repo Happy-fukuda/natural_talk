@@ -1,2 +1,2 @@
-raw_data=movie
-language=Enmax_data=25000
+raw_data=sequence.txt
+language=jamax_data=50000

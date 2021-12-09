@@ -4,22 +4,34 @@ import tensorflow as tf
 from tensorflow import keras
 import numpy as np
 import os
+from pymagnitude import Magnitude as mag
+
+def get_embedding(embedding,x):
+    main_tf=[]
+    for sentence in x:
+        sub_tf=[]
+        for word in sentence:
+            sub_tf.append(embedding(word))
+        main_tf.append(sub_tf)
+    return tf.constant(main_tf)
 
 class Encoder(tf.keras.Model):
     def __init__(self, vocab_size, embedding_dim, enc_units, batch_sz,input_length):
         super(Encoder, self).__init__() #オーバーライドするため
         self.batch_sz = batch_sz
         self.enc_units = enc_units
-
+        '''
         self.embedding = tf.keras.layers.Embedding(vocab_size,
                         embedding_dim,input_length=input_length)
+        '''
+        self.embedding=mag("../data/chive-1.2-mc30.magnitude")
         self.gru = tf.keras.layers.GRU(self.enc_units,
                                        return_sequences=True,
                                        return_state=True,
                                        recurrent_initializer='glorot_uniform')#Glorot の一様分布（Xavier の一様分布とも呼ばれます）による初期化を返します
 
     def call(self, x, hidden):
-        x = self.embedding(x)
+        x = get_embedding(self.embedding,x)
         #print("embed shape:"+str(x.shape))
         output, state = self.gru(x, initial_state = hidden)
         return output, state
@@ -65,7 +77,8 @@ class Decoder(tf.keras.Model):
         super(Decoder, self).__init__()
         self.batch_sz = batch_sz
         self.dec_units = dec_units
-        self.embedding = tf.keras.layers.Embedding(vocab_size, embedding_dim,input_length=output_length)
+        #self.embedding = tf.keras.layers.Embedding(vocab_size, embedding_dim,input_length=output_length)
+        self.embedding=mag("../data/chive-1.2-mc30.magnitude")
         self.gru = tf.keras.layers.GRU(self.dec_units,
                                        return_sequences=True,
                                        return_state=True,
@@ -81,7 +94,7 @@ class Decoder(tf.keras.Model):
         context_vector, attention_weights = self.attention(hidden, enc_output)
 
         # 埋め込み層を通過したあとの x の shape  == (batch_size, 1, embedding_dim)
-        x = self.embedding(x)
+        x = get_embedding(self.embedding,x)
 
         # 結合後の x の shape == (batch_size, 1, embedding_dim + hidden_size)
         x = tf.concat([tf.expand_dims(context_vector, 1), x], axis=-1)
